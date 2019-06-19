@@ -46,7 +46,7 @@ function paginate(query, options, callback) {
       .lean(lean);
     if (populate) {
       [].concat(populate).forEach((item) => {
-        docsQuery.populate(item);
+        docsQuery.populate(item.key, item.exclude);
       });
     }
     promises = {

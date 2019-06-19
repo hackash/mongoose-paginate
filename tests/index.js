@@ -137,7 +137,7 @@ describe('mongoose-paginate', function() {
       });
     });
     it('with populate', function() {
-      return Book.paginate({}, { populate: 'author' }).then(function(result) {
+      return Book.paginate({}, { populate: [{key: 'author', exclude: null}] }).then(function(result) {
         expect(result.docs[0].author.name).to.equal('Arthur Conan Doyle');
       });
     });
